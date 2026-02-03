@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebRTC Video Call</title>
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+            text-align: center;
+            font-family: Arial;
+        }
+        video {
+            width: 45%;
+            margin: 10px;
+            border: 2px solid #444;
+        }
+        button, input {
+            padding: 8px;
+            margin: 5px;
+        }
+        .controls {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>WebRTC Room Video Call</h2>
+
+<input id="roomInput" placeholder="Enter Room ID" />
+<button onclick="joinRoom()">Join Room</button>
+
+<br><br>
+
+<video id="localVideo" autoplay muted></video>
+<video id="remoteVideo" autoplay></video>
+
+<p id="timer">00:00:00</p>
+<div class="controls">
+    <button onclick="toggleAudio()">🎙 Mute</button>
+    <button onclick="toggleVideo()">📷 Camera</button>
+    <button onclick="toggleScreenShare()">🖥 Share Screen</button>
+    <button onclick="endCall()" style="background:red;color:white;">
+        ❌ End
+    </button>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="client.js"></script>
+
+</body>
+</html>
